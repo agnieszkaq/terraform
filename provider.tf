@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "google" {
-  project     = "western-dock-447118-q6"
+  project     = "fleet-lightning-447307-j7"
   region      = "europe-central2"
   zone        = "europe-central2-a"
   credentials = file("~/.gcp/service-account-key.json")

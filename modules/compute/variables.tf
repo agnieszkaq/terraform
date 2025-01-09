@@ -57,3 +57,8 @@ variable "auto_healing_initial_delay" {
   description = "Initial delay for auto-healing in seconds."
   type        = number
 }
+
+variable "name" {
+  description = "The name of the instance prefix."
+  type        = string
+}

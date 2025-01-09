@@ -38,7 +38,7 @@ variable "backup_start_time" {
   type        = string
 }
 
-variable "app_subnet_ip_cidr_range" {
+variable "webserver_subnet_ip_cidr_range" {
   description = "CIDR range for the application subnet."
   type        = string
 }

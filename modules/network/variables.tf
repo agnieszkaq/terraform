@@ -9,12 +9,12 @@ variable "auto_create_subnetworks" {
   default     = false
 }
 
-variable "app_subnet_name" {
+variable "webserver_subnet_name" {
   description = "Name of the application subnet."
   type        = string
 }
 
-variable "app_subnet_ip_cidr_range" {
+variable "webserver_subnet_ip_cidr_range" {
   description = "IP CIDR range for the application subnet."
   type        = string
 }

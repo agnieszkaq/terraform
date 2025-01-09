@@ -22,23 +22,23 @@ resource "google_sql_database_instance" "db_instance" {
   }
 }
 
-resource "google_sql_database" "default" {
+resource "google_sql_database" "database" {
   name     = var.db_name
   instance = google_sql_database_instance.db_instance.name
 }
 
-resource "google_sql_user" "default" {
+resource "google_sql_user" "user" {
   name     = var.db_user_name
   instance = google_sql_database_instance.db_instance.name
   password = var.db_user_password
 }
 
-resource "google_compute_firewall" "allow_db_access" {
-  name    = "allow-db-access"
+resource "google_compute_firewall" "ports_allow" {
+  name    = "${var.db_name}-network-access"
   network = var.vpc_network
   allow {
     protocol = "tcp"
     ports    = var.db_ports
   }
-  source_ranges = [var.app_subnet_ip_cidr_range]
+  source_ranges = [var.webserver_subnet_ip_cidr_range]
 }

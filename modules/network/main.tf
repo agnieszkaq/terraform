@@ -3,10 +3,10 @@ resource "google_compute_network" "vpc_network" {
   auto_create_subnetworks = var.auto_create_subnetworks
 }
 
-resource "google_compute_subnetwork" "app_subnet" {
-  name          = var.app_subnet_name
+resource "google_compute_subnetwork" "webserver_subnet" {
+  name          = var.webserver_subnet_name
   network       = google_compute_network.vpc_network.id
-  ip_cidr_range = var.app_subnet_ip_cidr_range
+  ip_cidr_range = var.webserver_subnet_ip_cidr_range
 }
 
 resource "google_compute_subnetwork" "db_subnet" {
@@ -36,8 +36,8 @@ output "vpc_network_id" {
   value = google_compute_network.vpc_network.id
 }
 
-output "app_subnet_id" {
-  value = google_compute_subnetwork.app_subnet.id
+output "webserver_subnet_id" {
+  value = google_compute_subnetwork.webserver_subnet.id
 }
 
 output "db_subnet_id" {
